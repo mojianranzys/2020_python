@@ -2,15 +2,15 @@
 import sys
 import time
 import urllib
-import urllib2
 import requests
 import numpy as np
 from bs4 import BeautifulSoup
-from openpyxl import Workbook
+from openpyxl import workbook
 import io
 import re
 import csv
 import pandas as pd
+
 def getHTMLText(url,kv):
     try:
         r = requests.request('POST',url,data=kv)
@@ -28,7 +28,7 @@ def getHTMLText(url,kv):
         return "ERROR"
 
 if __name__=="__main__":
-    filename = "C:\\Users\\hp\Desktop\\sequence_infor_all.csv"
+    filename = "C:\\Users\\Administrator\\Desktop\\sequence_infor_all.csv"
     df = pd.read_csv(filename)
     nrow = df.shape[0]
     a = range(nrow)
@@ -120,7 +120,7 @@ if __name__=="__main__":
         tmp.append(result)
         #print(tmp)
 
-    w = open('C:\\Users\\hp\\Desktop\\sequence_infor_all_result.csv','wb')
+    w = open('C:\\Users\\Administrator\\Desktop\\sequence_infor_all_result.csv','wb')
     writer = csv.writer(w)
     writer.writerow(['Plate','Num','Peptide_lib','Sequence','Type','Num_aa','MW','PI','Total_negatively_DE',
             'Formula','Total_atomes','Ext_coefficient1','E1','Ext_coefficient2','E2','Aliphatic_ndex',
